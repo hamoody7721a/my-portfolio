@@ -49,8 +49,8 @@ export const translations = {
     contact_btn: 'Send Message',
     projects: [
       { title: 'Crunchy Bites App', desc: 'Full web app using React and Vite, featuring a real-time interactive cart, direct WhatsApp order placement, and an Admin Dashboard.', link: 'https://crunchy-bites.pages.dev', tech: 'React, Vite, WhatsApp API' },
-      { title: 'Syria TIC Store', desc: 'Tech electronics e-commerce interface built on PHP with an integrated admin backend panel for inventory management.', link: '#', tech: 'PHP, MySQL, HTML/CSS' },
-      { title: 'Responsive E-Commerce', desc: 'Modern, multi-device compatible storefront layout using semantic HTML5 and custom CSS3 styling.', link: '#', tech: 'HTML5, CSS3' }
+      { title: 'Syria TIC Store', desc: 'Tech electronics e-commerce interface built on PHP with an integrated admin backend panel for inventory management.', link: 'https://syria-tic.rf.gd', tech: 'PHP, MySQL, HTML/CSS' },
+      { title: 'Responsive E-Commerce', desc: 'Modern, multi-device compatible storefront layout using semantic HTML5 and custom CSS3 styling.', link: 'https://responsive-ecommerce.pages.dev/', tech: 'HTML5, CSS3' }
     ]
   }
 }
