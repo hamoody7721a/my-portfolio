@@ -24,7 +24,7 @@ export const translations = {
     contact_btn: 'أرسل رسالة',
     projects: [
       { title: 'تطبيق Crunchy Bites', desc: 'تطبيق ويب متكامل لطلبات المطاعم مبني بـ React و Vite، يتميز بسلة تسوق تفاعلية، إرسال الطلبات عبر واتساب، ولوحة تحكم مخصصة.', link: 'https://crunchy-bites.pages.dev', tech: 'React, Vite, WhatsApp API' },
-      { title: 'متجر Syria TIC', desc: 'واجهة متجر إلكتروني للمعدات التقنية مبني بلغة PHP مع لوحة تحكم متكاملة لإدارة الأجهزة.', link: '#', tech: 'PHP, MySQL, HTML/CSS' },
+      { title: 'متجر Syria TIC', desc: 'واجهة متجر إلكتروني للمعدات التقنية مبني بلغة PHP مع لوحة تحكم متكاملة لإدارة الأجهزة.', link: 'https://syria-tic.rf.gd', tech: 'PHP, MySQL, HTML/CSS' },
       { title: 'متجر إلكتروني متجاوب', desc: 'بناء واجهة متجر إلكتروني عصري ومتجاوب مع جميع أحجام الشاشات باستخدام HTML5 و CSS3.', link: '#', tech: 'HTML5, CSS3' }
     ]
   },
