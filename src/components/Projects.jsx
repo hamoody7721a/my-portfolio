@@ -35,9 +35,9 @@ function ProjectCard({ project }) {
         cursor: 'pointer', position: 'relative', overflow: 'hidden'
       }}
     >
-      <div style={{ transform: 'translateZ(30px)' }}>
+      <div style={{ transform: 'translateZ(30px)', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <h3 style={{ fontSize: '1.4rem', color: 'var(--text)', marginBottom: '10px' }}>{project.title}</h3>
-        <p style={{ color: 'var(--gray)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px' }}>{project.desc}</p>
+        <p style={{ color: 'var(--gray)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px', flex: 1 }}>{project.desc}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
           {project.tech.split(', ').map(tech => (
             <span key={tech} style={{ 
@@ -46,12 +46,19 @@ function ProjectCard({ project }) {
             }}>{tech}</span>
           ))}
         </div>
-        <a href={project.link} target="_blank" rel="noreferrer" style={{
-          display: 'inline-block', color: 'var(--secondary)', fontWeight: 700,
-          borderBottom: '2px solid var(--secondary)', paddingBottom: '2px'
-        }}>
-          عرض المشروع ↗
-        </a>
+        
+        <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginTop: 'auto', flexWrap: 'wrap' }}>
+          <a href={project.link} target="_blank" rel="noreferrer" style={{
+            display: 'inline-flex', alignItems: 'center', gap: '5px', 
+            color: 'var(--secondary)', fontWeight: 700,
+            borderBottom: '2px solid var(--secondary)', paddingBottom: '2px',
+            transition: 'color 0.3s'
+          }}
+          onMouseEnter={e => e.currentTarget.style.color = 'var(--text)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'var(--secondary)'}>
+            عرض المشروع ↗
+          </a>
+        </div>
       </div>
     </div>
   )
@@ -63,12 +70,18 @@ function Projects() {
   return (
     <section id="projects">
       <h2 className="reveal active">{t.projects_title}</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+      
+      {/* هنا السر: استخدمنا minmax(450px) عشان تصير كرتين بالسطر على الشاشات الكبيرة */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
+        gap: '30px' 
+      }}>
         {t.projects.map((p, i) => (
           <ProjectCard key={i} project={p} />
         ))}
       </div>
-    </section>
+    </div>
   )
 }
 export default Projects
