@@ -25,7 +25,8 @@ export const translations = {
     projects: [
       { title: 'تطبيق Crunchy Bites', desc: 'تطبيق ويب متكامل لطلبات المطاعم مبني بـ React و Vite، يتميز بسلة تسوق تفاعلية، إرسال الطلبات عبر واتساب، ولوحة تحكم مخصصة.', link: 'https://crunchy-bites.pages.dev', tech: 'React, Vite, WhatsApp API' },
       { title: 'متجر Syria TIC', desc: 'واجهة متجر إلكتروني للمعدات التقنية مبني بلغة PHP مع لوحة تحكم متكاملة لإدارة الأجهزة.', link: 'https://syria-tic.rf.gd', tech: 'PHP, MySQL, HTML/CSS' },
-      { title: 'متجر إلكتروني متجاوب', desc: 'بناء واجهة متجر إلكتروني عصري ومتجاوب مع جميع أحجام الشاشات باستخدام HTML5 و CSS3.', link: 'https://responsive-ecommerce.pages.dev/', tech: 'HTML5, CSS3' }
+      { title: 'متجر إلكتروني متجاوب', desc: 'بناء واجهة متجر إلكتروني عصري ومتجاوب مع جميع أحجام الشاشات باستخدام HTML5 و CSS3.', link: 'https://responsive-ecommerce.pages.dev', tech: 'HTML5, CSS3' },
+      { title: 'متجر نبراس وكجون للأحذية', desc: 'متجر إلكتروني متكامل للأحذية يتميز بتصميم عصري، عرض المنتجات، وتجربة مستخدم سلسة ومتجاوبة.', link: 'https://shoe-store-cbr.pages.dev', tech: 'React, Vite, Tailwind CSS' }
     ]
   },
   en: {
@@ -50,7 +51,8 @@ export const translations = {
     projects: [
       { title: 'Crunchy Bites App', desc: 'Full web app using React and Vite, featuring a real-time interactive cart, direct WhatsApp order placement, and an Admin Dashboard.', link: 'https://crunchy-bites.pages.dev', tech: 'React, Vite, WhatsApp API' },
       { title: 'Syria TIC Store', desc: 'Tech electronics e-commerce interface built on PHP with an integrated admin backend panel for inventory management.', link: 'https://syria-tic.rf.gd', tech: 'PHP, MySQL, HTML/CSS' },
-      { title: 'Responsive E-Commerce', desc: 'Modern, multi-device compatible storefront layout using semantic HTML5 and custom CSS3 styling.', link: 'https://responsive-ecommerce.pages.dev/', tech: 'HTML5, CSS3' }
+      { title: 'Responsive E-Commerce', desc: 'Modern, multi-device compatible storefront layout using semantic HTML5 and custom CSS3 styling.', link: 'https://responsive-ecommerce.pages.dev', tech: 'HTML5, CSS3' },
+      { title: 'Nawras & Kajjoun Shoe Store', desc: 'A full e-commerce store for shoes featuring a modern design, product showcase, and a smooth, responsive user experience.', link: 'https://shoe-store-cbr.pages.dev', tech: 'React, Vite, Tailwind CSS' }
     ]
   }
 }
