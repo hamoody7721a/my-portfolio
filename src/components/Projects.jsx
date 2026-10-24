@@ -6,6 +6,7 @@ function ProjectCard({ project }) {
 
   const handleMouseMove = (e) => {
     const card = cardRef.current
+    if (!card) return;
     const rect = card.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
@@ -20,7 +21,9 @@ function ProjectCard({ project }) {
   }
 
   const handleMouseLeave = () => {
-    cardRef.current.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`
+    if (cardRef.current) {
+      cardRef.current.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`
+    }
   }
 
   return (
@@ -71,17 +74,26 @@ function Projects() {
     <section id="projects">
       <h2 className="reveal active">{t.projects_title}</h2>
       
-      {/* هنا السر: استخدمنا minmax(450px) عشان تصير كرتين بالسطر على الشاشات الكبيرة */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
-        gap: '30px' 
-      }}>
+      {/* التعديل السحري هون */}
+      <style>{`
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+        @media (max-width: 900px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+
+      <div className="projects-grid">
         {t.projects.map((p, i) => (
           <ProjectCard key={i} project={p} />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 export default Projects
