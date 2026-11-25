@@ -1,75 +1,170 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
-const LanguageContext = createContext()
-
-export const translations = {
+const translations = {
   ar: {
-    contact_whatsapp: 'راسلني واتساب',
-    nav_about: 'عني',
-    nav_skills: 'مهاراتي',
-    nav_projects: 'مشاريعي',
-    nav_contact: 'تواصل',
-    hero_greeting: 'أهلاً بك في عالمي',
+    nav_home: 'الرئيسية',
+    nav_about: 'نبذة عني',
+    nav_skills: 'المهارات',
+    nav_projects: 'المشاريع',
+    nav_contact: 'تواصل معي',
+    hero_greeting: 'مرحباً بك في عالمي الرقمي',
     hero_im: 'أنا',
-    hero_name: 'محمد غصن',
-    hero_role: 'مطور واجهات أمامية',
-    hero_desc: 'أصمم وأبني تجارب رقمية استثنائية. أحول الأفكار المعقدة إلى واجهات بسيطة، سريعة، وجذابة.',
+    hero_name: 'محمد عبد السلام غصن',
+    hero_role: 'مطور واجهات أمامية ومستقل (React.js)',
+    hero_desc:
+      'حاصل على دبلوم تقاني في علوم الحاسوب (TIC) من الجامعة الافتراضية السورية (SVU). أبني مواقع وتطبيقات ويب متجاوبة وعصرية باستخدام HTML5 و CSS3 و JavaScript (ES6+) و React.js مع Vite، ومؤسس وكالة جوبيتير (Jupiter Agency).',
     hero_btn: 'استكشف أعمالي',
-    about_title: 'عني',
-    about_text: 'مطور واجهات أمامية شغوف، حاصل على دبلوم تقني في علوم الحاسوب من الجامعة الافتراضية السورية. أمتلك خبرة واسعة في بناء تطبيقات ويب ديناميكية ومتجاوبة باستخدام React.js و JavaScript. أعمل كمطور مستقل (Freelance) ولدي سجل حافل في بناء المتاجر الإلكترونية وتطبيقات المطاعم مثل Crunchy Bites.',
-    skills_title: 'مهاراتي التقنية',
-    projects_title: 'أبرز مشاريعي',
+    download_cv: 'تحميل السيرة الذاتية',
+    about_title: 'نبذة عني',
+    about_text:
+      'مطور واجهات أمامية حاصل على دبلوم تقاني في علوم الحاسوب (TIC) من الجامعة الافتراضية السورية (SVU - خريج 2024). أعمل على بناء تطبيقات وواجهات ويب حديثة ومتجاوبة باستخدام HTML5 و CSS3 و JavaScript (ES6+) و React.js مع Vite، مع خلفية داعمة بـ PHP وقواعد البيانات (MySQL, SQL Server) وربط الـ APIs ومسارات الطلب عبر WhatsApp، ومؤسس وكالة جوبيتير (Jupiter Agency).',
+    skills_title: 'المهارات التقنية والبرمجية',
+    projects_title: 'أبرز المشاريع والتطبيقات',
+    view_project: 'عرض المشروع ↗',
     contact_title: 'تواصل معي',
-    contact_desc: 'هل لديك فكرة مشروع؟ دعنا نبني شيئاً رائعاً معاً.',
-    contact_btn: 'أرسل رسالة',
+    contact_desc: 'جاهز للعمل على مشاريع الويب، المتاجر، وصفحات الحجز والطلبات.',
+    contact_whatsapp: 'تواصل عبر واتساب',
     projects: [
-      { title: 'تطبيق Crunchy Bites', desc: 'تطبيق ويب متكامل لطلبات المطاعم مبني بـ React و Vite، يتميز بسلة تسوق تفاعلية، إرسال الطلبات عبر واتساب، ولوحة تحكم مخصصة.', link: 'https://crunchy-bites.pages.dev', tech: 'React, Vite, WhatsApp API' },
-      { title: 'متجر Syria TIC', desc: 'واجهة متجر إلكتروني للمعدات التقنية مبني بلغة PHP مع لوحة تحكم متكاملة لإدارة الأجهزة.', link: 'https://syria-tic.rf.gd', tech: 'PHP, MySQL, HTML/CSS' },
-      { title: 'متجر إلكتروني متجاوب', desc: 'بناء واجهة متجر إلكتروني عصري ومتجاوب مع جميع أحجام الشاشات باستخدام HTML5 و CSS3.', link: 'https://responsive-ecommerce.pages.dev', tech: 'HTML5, CSS3' },
-      { title: 'متجر نبراس وكجون للأحذية', desc: 'متجر إلكتروني متكامل للأحذية يتميز بتصميم عصري، عرض المنتجات، وتجربة مستخدم سلسة ومتجاوبة.', link: 'https://shoe-store-cbr.pages.dev', tech: 'React, Vite, Tailwind CSS' }
-    ]
+      {
+        title: 'موقع وكالة جوبيتير (Jupiter Agency)',
+        desc: 'موقع تعريفي لوكالة رقمية يعرض خدمات تصميم الويب وحلول الحجز والطلبات التجارية.',
+        tech: 'React, Vite, Responsive UI',
+        link: 'https://jupiter-agency.pages.dev',
+      },
+      {
+        title: 'البورتفوليو الشخصي (Personal Portfolio)',
+        desc: 'معرض أعمال شخصي لعرض المشاريع المنفذة والروابط الحية والمهارات البرمجية.',
+        tech: 'React, Vite, UI/UX',
+        link: 'https://my-portfolio-rn7.pages.dev',
+      },
+      {
+        title: 'تطبيق طلبات المطاعم — Crunchy Bites',
+        desc: 'تطبيق ويب مبني بـ React و Vite يضم سلة تفاعلية، وإرسال الطلبات مباشرة عبر WhatsApp، وإدارة القوائم.',
+        tech: 'React, Vite, WhatsApp API',
+        link: 'https://crunchy-bites.pages.dev',
+      },
+      {
+        title: 'متجر أزياء — Rasha Chic',
+        desc: 'واجهة متجر أزياء وموضة متجاوبة تركز على وضوح العرض البصري وسهولة التصفح عبر الجوال.',
+        tech: 'HTML5, CSS3, Responsive',
+        link: 'https://rasha-chic.pages.dev',
+      },
+      {
+        title: 'متجر الأحذية — Shoes Storefront',
+        desc: 'واجهة متجر أحذية عصرية مصممة للتصفح السلس على مختلف الأجهزة وعرض المنتجات بوضوح.',
+        tech: 'HTML5, CSS3, JavaScript',
+        link: 'https://shoes-store-9p7.pages.dev',
+      },
+      {
+        title: 'عيادة ميرميد لطب الأسنان — Mermaid Dental',
+        desc: 'موقع تعريفي لعيادة أسنان يبرز الخدمات الطبية وتجربة تصفح مريحة للمراجعين.',
+        tech: 'React, UI/UX, Web Design',
+        link: 'https://mermaid-dental-chf.pages.dev',
+      },
+      {
+        title: 'منصة حجز ملاعب كرة القدم',
+        desc: 'منصة ويب لملاعب كرة القدم توضح المواعيد والخدمات وتدعم الوصول السريع من الهاتف.',
+        tech: 'React, Booking UI, Mobile',
+        link: 'https://football-playgroundkuwait.pages.dev',
+      },
+      {
+        title: 'متجر سوريا للتكنولوجيا — Syria TIC Store',
+        desc: 'متجر إلكتروني للأجهزة والمعدات التقنية مبني بـ PHP مع لوحة إدارة للمنتجات والمخزون.',
+        tech: 'PHP, MySQL, Admin Panel',
+        link: 'https://syria-tic.rf.gd',
+      },
+    ],
   },
   en: {
-    contact_whatsapp: 'WhatsApp Me',
+    nav_home: 'Home',
     nav_about: 'About',
     nav_skills: 'Skills',
     nav_projects: 'Projects',
     nav_contact: 'Contact',
-    hero_greeting: 'Welcome to my world',
-    hero_im: "I'm",
-    hero_name: 'Mohammad Ghusen',
-    hero_role: 'Front-End Developer',
-    hero_desc: 'I design and build exceptional digital experiences. I turn complex ideas into simple, fast, and engaging interfaces.',
+    hero_greeting: 'WELCOME TO MY DIGITAL WORLD',
+    hero_im: "I'M",
+    hero_name: 'Mohammad Abdulsalam Ghusen',
+    hero_role: 'Front-End Web Developer | React.js & Freelance',
+    hero_desc:
+      'Front-End Web Developer holding a Technical Diploma in Computer Science (TIC) from SVU. Building responsive modern web apps with HTML5, CSS3, JavaScript (ES6+), React.js, and Vite, and Founder of Jupiter Agency.',
     hero_btn: 'Explore My Work',
+    download_cv: 'Download CV',
     about_title: 'About Me',
-    about_text: 'Passionate Front-End Developer with a Technical Diploma in Computer Science from the Syrian Virtual University (SVU). Proficient in modern web technologies including React.js and JavaScript. As a Freelance Developer, I have a proven track record of building dynamic, responsive web applications and e-commerce stores like Crunchy Bites.',
+    about_text:
+      'Detail-oriented Front-End Web Developer holding a Technical Diploma in Computer Science (TIC) from the Syrian Virtual University (SVU, graduated 2024). Experienced in building responsive web applications with HTML5, CSS3, JavaScript (ES6+), React.js, and Vite, with supporting knowledge of PHP, MySQL, SQL Server, APIs, and WhatsApp order flows, and Founder of Jupiter Agency.',
     skills_title: 'Technical Skills',
-    projects_title: 'Featured Projects',
-    contact_title: 'Contact Me',
-    contact_desc: 'Have a project idea? Let\'s build something amazing together.',
-    contact_btn: 'Send Message',
+    projects_title: 'Selected Projects & Web Apps',
+    view_project: 'Live Preview ↗',
+    contact_title: 'Get In Touch',
+    contact_desc: 'Available for freelance front-end builds, storefronts, and booking or ordering web apps.',
+    contact_whatsapp: 'Chat on WhatsApp',
     projects: [
-      { title: 'Crunchy Bites App', desc: 'Full web app using React and Vite, featuring a real-time interactive cart, direct WhatsApp order placement, and an Admin Dashboard.', link: 'https://crunchy-bites.pages.dev', tech: 'React, Vite, WhatsApp API' },
-      { title: 'Syria TIC Store', desc: 'Tech electronics e-commerce interface built on PHP with an integrated admin backend panel for inventory management.', link: 'https://syria-tic.rf.gd', tech: 'PHP, MySQL, HTML/CSS' },
-      { title: 'Responsive E-Commerce', desc: 'Modern, multi-device compatible storefront layout using semantic HTML5 and custom CSS3 styling.', link: 'https://responsive-ecommerce.pages.dev', tech: 'HTML5, CSS3' },
-      { title: 'Nawras & Kajjoun Shoe Store', desc: 'A full e-commerce store for shoes featuring a modern design, product showcase, and a smooth, responsive user experience.', link: 'https://shoe-store-cbr.pages.dev', tech: 'React, Vite, Tailwind CSS' }
-    ]
-  }
+      {
+        title: 'Jupiter Agency Website',
+        desc: 'Digital agency showcase presenting web design, booking solutions, and commercial web services.',
+        tech: 'React, Vite, Responsive UI',
+        link: 'https://jupiter-agency.pages.dev',
+      },
+      {
+        title: 'Personal Developer Portfolio',
+        desc: 'Personal developer portfolio highlighting front-end builds, UI work, and live web deployments.',
+        tech: 'React, Vite, UI/UX',
+        link: 'https://my-portfolio-rn7.pages.dev',
+      },
+      {
+        title: 'Restaurant Ordering Web App — Crunchy Bites',
+        desc: 'Built with React and Vite featuring an interactive cart, direct WhatsApp order flow, and menu administration.',
+        tech: 'React, Vite, WhatsApp API',
+        link: 'https://crunchy-bites.pages.dev',
+      },
+      {
+        title: 'Rasha Chic — Fashion Storefront',
+        desc: 'Responsive fashion and apparel web storefront focused on clean visual presentation and mobile usability.',
+        tech: 'HTML5, CSS3, Responsive',
+        link: 'https://rasha-chic.pages.dev',
+      },
+      {
+        title: 'Shoes Storefront',
+        desc: 'Modern footwear storefront designed for multi-device browsing and clear product presentation.',
+        tech: 'HTML5, CSS3, JavaScript',
+        link: 'https://shoes-store-9p7.pages.dev',
+      },
+      {
+        title: 'Mermaid Dental Clinic',
+        desc: 'Dental clinic web experience tailored to service presentation and patient-friendly navigation.',
+        tech: 'React, UI/UX, Web Design',
+        link: 'https://mermaid-dental-chf.pages.dev',
+      },
+      {
+        title: 'Football Playground Booking Site',
+        desc: 'Sports pitch web presence built for clear schedule visibility and mobile access.',
+        tech: 'React, Booking UI, Mobile',
+        link: 'https://football-playgroundkuwait.pages.dev',
+      },
+      {
+        title: 'Syria TIC Electronics Store',
+        desc: 'Electronics store interface built with PHP and an administrative panel for product and inventory management.',
+        tech: 'PHP, MySQL, Admin Panel',
+        link: 'https://syria-tic.rf.gd',
+      },
+    ],
+  },
 }
+
+const LanguageContext = createContext()
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState('ar')
-  
-  const toggleLang = () => {
-    setLang(prev => prev === 'ar' ? 'en' : 'ar')
-    // تغيير اتجاه الصفحة
-    document.documentElement.dir = lang === 'ar' ? 'ltr' : 'rtl'
-  }
 
-  const t = translations[lang]
+  useEffect(() => {
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.lang = lang
+  }, [lang])
+
+  const toggleLang = () => setLang((prev) => (prev === 'ar' ? 'en' : 'ar'))
 
   return (
-    <LanguageContext.Provider value={{ lang, toggleLang, t }}>
+    <LanguageContext.Provider value={{ lang, setLang, toggleLang, t: translations[lang] }}>
       {children}
     </LanguageContext.Provider>
   )
